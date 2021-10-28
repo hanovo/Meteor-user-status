@@ -8,7 +8,7 @@ Accounts.onLogin((data) => {
     _id: data.user._id
   }, {
     $set: {
-      connection: data.connection.id,
+      'profile.connection': data.connection.id,
       'profile.online': true,
       'profile.idle': false,
       'profile.location.ip': data.connection.clientAddress,
@@ -22,7 +22,7 @@ Accounts.onLogout((data) => {
     _id: data.user._id
   }, {
     $set: {
-      connection: data.connection.id,
+      'profile.connection': data.connection.id,
       'profile.online': false,
       'profile.idle': false,
       'profile.location.ip': data.connection.clientAddress
